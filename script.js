@@ -6,10 +6,13 @@ let highscore = "";
 
 console.log("random is " + randomNumber);
 function getValue() {
-  let inputValue = document.getElementById("input").value;
+  let inputValue = Number(document.getElementById("input").value);
   console.log(inputValue);
 
-  if (inputValue < randomNumber) {
+  if (!inputValue || inputValue < 1 || inputValue > 20) {
+    document.querySelector(".guess-result").textContent =
+      "Please pick a number between 1 and 20!";
+  } else if (inputValue < randomNumber) {
     document.querySelector(".guess-result").textContent = "Low";
     score.textContent = Number(score.textContent) - 1;
   } else if (inputValue > randomNumber) {
