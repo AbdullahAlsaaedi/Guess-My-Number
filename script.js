@@ -35,6 +35,3 @@ function reset() {
   console.log("random is " + randomNumber);
   document.getElementById("input").value = "";
 }
-
-let test = 2;
-let test2 = 2;
