@@ -3,29 +3,39 @@ let score = document.querySelector(".score-number");
 
 let randomNumber = 1 + Math.trunc(Math.random() * 20);
 let highscore = "";
+let lost = false;
 
 console.log("random is " + randomNumber);
 function getValue() {
   let inputValue = Number(document.getElementById("input").value);
   console.log(inputValue);
 
-  if (!inputValue || inputValue < 1 || inputValue > 20) {
-    document.querySelector(".guess-result").textContent =
-      "Please pick a number between 1 and 20!";
-  } else if (inputValue < randomNumber) {
-    document.querySelector(".guess-result").textContent = "Low";
-    score.textContent = Number(score.textContent) - 1;
-  } else if (inputValue > randomNumber) {
-    document.querySelector(".guess-result").textContent = "High";
-    score.textContent = Number(score.textContent) - 1;
-  } else {
-    document.querySelector(".guess-result").textContent = "Correct Number!";
-    document.querySelector(".guess-number").textContent = inputValue;
-    document.body.style.backgroundColor = "#7CFC00";
-    if (score.textContent > highscore) {
-      highscore = score.textContent;
-      document.querySelector(".highscore-number").textContent = highscore;
+  if (!lost) {
+    if (!inputValue || inputValue < 1 || inputValue > 20) {
+      document.querySelector(".guess-result").textContent =
+        "Please pick a number between 1 and 20!";
+    } else if (inputValue < randomNumber) {
+      document.querySelector(".guess-result").textContent = "Low";
+      score.textContent = Number(score.textContent) - 1;
+    } else if (inputValue > randomNumber) {
+      document.querySelector(".guess-result").textContent = "High";
+      score.textContent = Number(score.textContent) - 1;
+    } else {
+      document.querySelector(".guess-result").textContent = "Correct Number!";
+      document.querySelector(".guess-number").textContent = inputValue;
+      document.querySelector(".guess-number").style.paddingRight = "8rem";
+      document.querySelector(".guess-number").style.paddingLeft = "8rem";
+
+      document.body.style.backgroundColor = "#7CFC00";
+      if (score.textContent > highscore) {
+        highscore = score.textContent;
+        document.querySelector(".highscore-number").textContent = highscore;
+      }
     }
+  }
+  if (Number(score.textContent) < 1) {
+    lost = true;
+    document.querySelector(".guess-result").textContent = "You Lost the game!";
   }
 }
 
@@ -34,6 +44,8 @@ function reset() {
   score.textContent = 20;
   document.querySelector(".guess-result").textContent = "Start quessing...";
   document.querySelector(".guess-number").textContent = "?";
+  document.querySelector(".guess-number").style.paddingRight = "5rem";
+  document.querySelector(".guess-number").style.paddingLeft = "5rem";
   randomNumber = 1 + Math.trunc(Math.random() * 20);
   console.log("random is " + randomNumber);
   document.getElementById("input").value = "";

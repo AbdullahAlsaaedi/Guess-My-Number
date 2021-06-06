@@ -44,6 +44,8 @@ body {
   padding: 3rem 5rem;
   transform: translateY(50%);
   margin-top: 2rem;
+  text-align: center;
+  font-size: 4rem;
 }
 
 .guess-info-box {
