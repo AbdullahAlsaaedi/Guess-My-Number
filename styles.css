@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  font-family: "Press Start 2P", sans-serif;
+}
+
+body {
+  background-color: rgb(34, 34, 34);
+  min-height: 100vh;
+  color: white;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+
+.btn {
+  padding: 1rem 3rem;
+  font-size: 2rem;
+}
+
+.guess-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  padding-top: 5rem;
+  border-bottom: 1rem solid white;
+}
+
+.guess-number {
+  background-color: white;
+  color: black;
+  padding: 3rem 5rem;
+  transform: translateY(50%);
+  margin-top: 2rem;
+}
+
+.guess-info-box {
+  display: flex;
+  margin-top: 10rem;
+}
+
+.guess-info-box > * {
+  flex: 0 0 50%;
+}
+
+.guess-forms {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+input {
+  color: white;
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  background-color: transparent;
+  border: solid 2px white;
+  font-family: "Press Start 2P", sans-serif;
+
+  width: 35%;
+  padding: 2rem;
+}
+
+.guess-info {
+  font-size: 2.5rem;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.guess-info > * {
+  margin-bottom: 1.5rem;
+}
+
+.guess-result {
+  margin-bottom: auto;
+}
